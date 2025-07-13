@@ -12,7 +12,10 @@ def handler() -> str:
 |  ▒█░▒█ ░▀▄▄▀ ░▒█░░ ▒█░▒█ ▒█▄▄▄ ▒█░░▀█ ░▒█░░ ▄█▄ ▒█▄▄█ ▒█░▒█ ░▒█░░ ▄█▄ ▒█▄▄▄█ ▒█░░▀█  |
 ----------------------------------------------------------------------------------------
 
+
 """)
+
+  ui.Messages().primary_line("grey", 100)
 
   options = ['Ｌｏｇｉｎ\n', 'Ｓｉｇｎ Ｕｐ\n', 'Ｂａｃｋ\n']
   index = survey.routines.select(
@@ -22,13 +25,13 @@ def handler() -> str:
       evade_color=survey.colors.basic('white'),
       insearch_color=survey.colors.basic('white'))
 
+  print("---------------------------------------------------------------------------------------------")
   if index == 0:
-    return "LOGIN"
+    return ("LOGIN",)
   elif index == 1:
-    return "SIGNUP"
+    return ("SIGNUP",)
   elif index == 2:
     os.system("clear")
-    ui.Messages().indicator_message("            Ｂａｃｋｉｎｇ ｔｏ ｈｏｍｅ ｐａｇｅ")
-    return "HOME"
+    return ("HOME",)
   else:
     return "err"

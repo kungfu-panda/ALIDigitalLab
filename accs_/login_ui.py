@@ -1,5 +1,5 @@
 from termcolor import colored
-from auth_.models import AuthUtils
+from accs_.models import AuthUtils
 import getpass
 import os
 from misc_.ui import Messages
@@ -7,13 +7,13 @@ from misc_.ui import Messages
 ui = Messages()
 
 
-def login_handler() -> str:
+def login_handler():
     print("""
-            ------------------------------------------
-            |     ▒█░░░ ▒█▀▀▀█ ▒█▀▀█ ▀█▀ ▒█▄░▒█      |
-            |     ▒█░░░ ▒█░░▒█ ▒█░▄▄ ▒█░ ▒█▒█▒█      |
-            |     ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄█ ▄█▄ ▒█░░▀█      |
-            ------------------------------------------
+                ------------------------------------------
+                |     ▒█░░░ ▒█▀▀▀█ ▒█▀▀█ ▀█▀ ▒█▄░▒█      |
+                |     ▒█░░░ ▒█░░▒█ ▒█░▄▄ ▒█░ ▒█▒█▒█      |
+                |     ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄█ ▄█▄ ▒█░░▀█      |
+                ------------------------------------------
 
 
 """)
@@ -28,39 +28,36 @@ def login_handler() -> str:
         password = ""
         ui.leave_line()
         ui.leave_line()
-        ui.primary_line("grey", 60)
+        ui.primary_line("grey", 70)
         username = input(colored("Ｕｓｅｒｎａｍｅ    :", "white"))
-        ui.primary_line("grey", 60)
+        ui.primary_line("grey", 70)
         ui.leave_line()
-        ui.primary_line("grey", 60)
+        ui.primary_line("grey", 70)
         password = getpass.getpass(colored("Ｐａｓｓｗｏｒｄ    :", "white"))
-        ui.primary_line("grey", 60)
+        ui.primary_line("grey", 70)
         ui.leave_line()
         ui.indicator_message("        Ａｕｔｈｅｎｔｉｃａｔｉｎｇ Ｉｎｆｏｒｍａｔｉｏｎ")
         auth_obj = AuthUtils()
         user_exists = auth_obj.user_exists(username)
-        if user_exists == False:
+        if not user_exists:
             os.system("clear")
             ui.error_message(
                 f"""Ｓｔａｔｕｓ： Ｌｏｇｉｎ Ｆａｉｌｅｄ\nＲｅａｓｏｎ： Ｔｈｅ ｕｓｅｒｎａｍｅ ＂{username}＂ ｄｏｅｓ ｎｏｔ ｅｘｉｓｔ"""
             )
-            return "LOGIN"
-        elif user_exists == True:
+            return ("LOGIN", )
+        elif user_exists:
             os.system("clear")
             matched = auth_obj.verify_user(username, password)
             if matched:
                 ui.leave_line()
-                ui.success_message("    Ｓｔａｔｕｓ： Ｌｏｇｉｎ ｓｕｃｃｅｓｓｆｕｌ")
 
-                return "MENU"
+                ui.success_message("    Ｓｔａｔｕｓ： Ｌｏｇｉｎ ｓｕｃｃｅｓｓｆｕｌ")
+                return ("MENU", username)
             else:
                 os.system("clear")
                 ui.error_message(
                     "Ｓｔａｔｕｓ： Ｌｏｇｉｎ Ｆａｉｌｅｄ\nＲｅａｓｏｎ： Ｉｎｖａｌｉｄ Ｐａｓｓｗｏｒｄ")
-                return "LOGIN"
+                return ("LOGIN", )
 
     else:
-        return "AUTH"
-
-
-
+        return ("AUTH", )

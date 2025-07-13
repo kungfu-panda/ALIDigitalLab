@@ -20,7 +20,6 @@ class Messages:
     self.primary_line("grey", 80)
     print(colored(message, "grey"))
     self.primary_line("grey", 80)
-    time.sleep(2)
 
   def highlighter_message(self, message) -> None:
     self.primary_line("grey", 80)
