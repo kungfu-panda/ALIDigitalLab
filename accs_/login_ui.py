@@ -22,7 +22,7 @@ def login_handler():
     if choice.lower().startswith("y"):
         os.system("clear")
         ui.primary_line("grey", 70)
-        print(colored("        Ｅｎｔｅｒ ｙｏｕｒ ｃｒｅｄｅｎｔｉａｌｓ ｂｅｌｏｗ   ", "white"))
+        print(colored("        ＥＮＴＥＲ ＹＯＵＲ ＣＲＥＤＥＮＴＩＡＬＳ ＢＥＬＯＷ", "white"))
         ui.primary_line("grey", 70)
         username = ""
         password = ""
@@ -30,13 +30,15 @@ def login_handler():
         ui.leave_line()
         ui.primary_line("grey", 70)
         username = input(colored("Ｕｓｅｒｎａｍｅ    :", "white"))
+        if username == "": return ("LOGIN", )
         ui.primary_line("grey", 70)
         ui.leave_line()
         ui.primary_line("grey", 70)
         password = getpass.getpass(colored("Ｐａｓｓｗｏｒｄ    :", "white"))
         ui.primary_line("grey", 70)
         ui.leave_line()
-        ui.indicator_message("        Ａｕｔｈｅｎｔｉｃａｔｉｎｇ Ｉｎｆｏｒｍａｔｉｏｎ")
+        os.system('clear')
+        ui.indicator_message("            Ａｕｔｈｅｎｔｉｃａｔｉｎｇ Ｉｎｆｏｒｍａｔｉｏｎ")
         auth_obj = AuthUtils()
         user_exists = auth_obj.user_exists(username)
         if not user_exists:
@@ -49,9 +51,7 @@ def login_handler():
             os.system("clear")
             matched = auth_obj.verify_user(username, password)
             if matched:
-                ui.leave_line()
-
-                ui.success_message("    Ｓｔａｔｕｓ： Ｌｏｇｉｎ ｓｕｃｃｅｓｓｆｕｌ")
+                ui.success_message("            Ｓｔａｔｕｓ： Ｌｏｇｉｎ ｓｕｃｃｅｓｓｆｕｌ")
                 return ("MENU", username)
             else:
                 os.system("clear")

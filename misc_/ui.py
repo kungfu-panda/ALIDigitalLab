@@ -42,7 +42,6 @@ class Messages:
     self.primary_line("grey", 80)
     inp = input(message)
     self.primary_line("grey", 80)
-    time.sleep(1)
     return inp
 
   def leave_line(self) -> None:

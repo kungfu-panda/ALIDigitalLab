@@ -15,11 +15,11 @@ def handler() -> str:
 
 """)
 
-  ui.Messages().primary_line("grey", 100)
+  ui.Messages().primary_line("grey", 70)
 
   options = ['Ｌｏｇｉｎ\n', 'Ｓｉｇｎ Ｕｐ\n', 'Ｂａｃｋ\n']
   index = survey.routines.select(
-      'Ｐｌｅａｓｅ  ｓｅｌｅｃｔ  ｏｎｅ  ｏｆ  ｔｈｅ  ｆｏｌｌｏｗｉｎｇ  ｏｐｔｉｏｎｓ:\n',
+      'ＰＬＥＡＳＥ ＳＥＬＥＣＴ ＡＮ ＯＰＴＩＯＮ ＴＯ ＰＲＯＣＥＥＤ:\n',
       options=options,
       focus_mark='> ',
       evade_color=survey.colors.basic('white'),

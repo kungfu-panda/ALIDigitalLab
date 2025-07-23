@@ -91,5 +91,9 @@ class AuthUtils:
       cursor.execute('UPDATE users SET password = ? WHERE username = ?',
                      (new_password, username))
       self.shut(db)
+      return True
+    else :
+      return False
 
+  
   #def

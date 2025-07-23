@@ -155,8 +155,8 @@ class SignUpHandler:
             self.type = None
             self.name = None
             self.ui.indicator_message(
-                "Ｙｏｕ ｗｉｌｌ ｂｅ ｒｅｄｉｒｅｃｔｅｄ ａｎｄ ｙｏｕｒ \nｃｈａｎｇｅｓ ｗｉｌｌ ｂｅ ｃｌｅａｒｅｄ")
-            return ("AUTH")
+                "Ｙｏｕ ｗｉｌｌ ｂｅ ｒｅｄｉｒｅｃｔｅｄ ａｎｄ ｙｏｕｒ ｃｈａｎｇｅｓ ｗｉｌｌ \nｂｅ ｃｌｅａｒｅｄ")
+            return ("AUTH",)
         elif index == 2:
             os.system("clear")
             self.name_handler()
