@@ -23,9 +23,7 @@ class SignUpHandler:
         while True:
             if breakit: break
             os.system("clear")
-            self.ui.default_message(
-                f"Ｃｕｒｒｅｎｔ ｎａｍｅ ｓｅｔ ｔｏ：'{self.name}'\nＴｏ ｇｏ ｂａｃｋ ｐｒｅｓｓ ［ ＥＮＴＥＲ ］"
-            )
+            self.ui.default_message(f"Ｃｕｒｒｅｎｔ ｎａｍｅ ｓｅｔ ｔｏ：'{self.name}'\nＴｏ ｇｏ ｂａｃｋ ｐｒｅｓｓ ［ ＥＮＴＥＲ ］")
             name = input(self.color("> Ｎａｍｅ :", "white"))
             self.ui.primary_line("grey", 80)
             time.sleep(1)
@@ -33,15 +31,10 @@ class SignUpHandler:
             names = name.split()
             for e in names:
                 if not e.isalpha():
-                    self.ui.error_message(
-                        "Ｓｔａｔｕｓ： Ｃｈａｎｇｉｎｇ Ｆａｉｌｅｄ\nＴｈｅ ｎａｍｅ ｃａｎ ｏｎｌｙ ｃｏｎｔａｉｎ ａｌｐｈａｂｅｔｓ"
-                    )
-
+                    self.ui.error_message("Ｓｔａｔｕｓ： Ｃｈａｎｇｉｎｇ Ｆａｉｌｅｄ\nＴｈｅ ｎａｍｅ ｃａｎ ｏｎｌｙ ｃｏｎｔａｉｎ ａｌｐｈａｂｅｔｓ")
                     break
-
                 else:
-                    self.ui.success_message(
-                        "Ｓｔａｔｕｓ： Ｎａｍｅ ｕｐｄａｔｅｄ ｓｕｃｃｅｓｓｆｕｌｌｙ！")
+                    self.ui.success_message("Ｓｔａｔｕｓ： Ｎａｍｅ ｕｐｄａｔｅｄ ｓｕｃｃｅｓｓｆｕｌｌｙ！")
                     self.name = name
                     breakit = True
                     break
@@ -69,8 +62,7 @@ class SignUpHandler:
     def username_handler(self):
         while True:
             os.system("clear")
-            self.ui.default_message(
-                f"Ｃｕｒｒｅｎｔ ｕｓｅｒｎａｍｅ ｓｅｔ ｔｏ：'{self.username}'\nＴｏ ｇｏ ｂａｃｋ ｐｒｅｓｓ ［ ＥＮＴＥＲ ］"
+            self.ui.default_message(f"Ｃｕｒｒｅｎｔ ｕｓｅｒｎａｍｅ ｓｅｔ ｔｏ：'{self.username}'\nＴｏ ｇｏ ｂａｃｋ ｐｒｅｓｓ ［ ＥＮＴＥＲ ］"
             )
             username = input(self.color("> Ｕｓｅｒｎａｍｅ :", "white"))
             self.ui.primary_line("grey", 80)
